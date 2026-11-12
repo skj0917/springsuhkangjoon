@@ -27,3 +27,13 @@ dependencies {
 tasks.named('test') {
 	useJUnitPlatform()
 }
+// build.gradle 맨 아래에 추가
+
+tasks.withType(JavaCompile).configureEach {
+	options.encoding = 'UTF-8'
+}
+
+tasks.withType(JavaExec).configureEach {
+	systemProperty 'stdout.encoding', 'UTF-8'
+	systemProperty 'stderr.encoding', 'UTF-8'
+}
